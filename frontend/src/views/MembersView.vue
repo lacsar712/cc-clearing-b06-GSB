@@ -19,7 +19,7 @@
             <el-tag :type="row.status === 'ACTIVE' ? 'success' : 'danger'">{{ row.status }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="220">
+        <el-table-column label="操作" width="300">
           <template #default="{ row }">
             <el-button
               size="small"
@@ -32,6 +32,12 @@
               :disabled="!auth.isOperator || row.status === 'SUSPENDED'"
               @click="setStatus(row, 'SUSPENDED')"
             >停用</el-button>
+            <el-button
+              size="small"
+              link
+              type="primary"
+              @click="$router.push({ name: 'position-history', query: { memberId: row.memberId } })"
+            >净头寸</el-button>
           </template>
         </el-table-column>
       </el-table>

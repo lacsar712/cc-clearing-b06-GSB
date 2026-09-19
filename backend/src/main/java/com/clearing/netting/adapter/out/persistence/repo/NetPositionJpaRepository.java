@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface NetPositionJpaRepository extends JpaRepository<NetPositionJpaEntity, String> {
     List<NetPositionJpaEntity> findByRunId(String runId);
+
+    List<NetPositionJpaEntity> findByMemberId(String memberId);
 }

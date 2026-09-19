@@ -49,7 +49,8 @@ docker compose down
 5. 「轧差执行」选择 settleDate + currency（如 USD），执行轧差
 6. 确认净头寸表 ΣnetAmount = 0，批次状态 COMPLETED
 7. 进入批次详情，点击 Settle，义务变为 SETTLED
-8. 使用 `viewer` 登录，确认只能浏览、无法执行写操作
+8. 「净头寸查询」选择有历史的会员（如 Alpha Bank）：按交割日+币种分行出现多行汇总；展开行可见来源批次及每笔净头寸，点击 Run ID 进入批次详情可核对金额一致；选择无历史的 Delta Holdings 显示空表
+9. 使用 `viewer` 登录，确认只能浏览、无法执行写操作（净头寸查询对操作员与只读均开放）
 
 健康检查：
 
