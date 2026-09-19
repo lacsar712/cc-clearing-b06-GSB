@@ -9,6 +9,7 @@ const routes = [
     children: [
       { path: '', name: 'home', component: () => import('../views/HomeView.vue') },
       { path: 'members', name: 'members', component: () => import('../views/MembersView.vue') },
+      { path: 'member-positions', name: 'member-positions', component: () => import('../views/MemberPositionsView.vue') },
       { path: 'obligations', name: 'obligations', component: () => import('../views/ObligationsView.vue') },
       { path: 'netting', name: 'netting', component: () => import('../views/NettingView.vue') },
       { path: 'netting-runs/:id', name: 'run-detail', component: () => import('../views/RunDetailView.vue') }

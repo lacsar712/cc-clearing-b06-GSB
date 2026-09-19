@@ -29,4 +29,14 @@ public class NetPositionRepositoryAdapter implements NetPositionRepositoryPort {
                 .map(PersistenceMapper::toDomain)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<NetPosition> findByMemberIdAndRunIdIn(String memberId, List<String> runIds) {
+        if (runIds == null || runIds.isEmpty()) {
+            return java.util.List.of();
+        }
+        return repository.findByMemberIdAndRunIdIn(memberId, runIds).stream()
+                .map(PersistenceMapper::toDomain)
+                .collect(Collectors.toList());
+    }
 }

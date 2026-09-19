@@ -15,4 +15,6 @@ public interface ObligationJpaRepository
             LocalDate settleDate, String currency, ObligationStatus status);
 
     List<ObligationJpaEntity> findByNettingRunId(String nettingRunId);
+
+    List<ObligationJpaEntity> findByNettingRunIdIn(List<String> nettingRunIds);
 }

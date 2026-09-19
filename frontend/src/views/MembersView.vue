@@ -19,8 +19,13 @@
             <el-tag :type="row.status === 'ACTIVE' ? 'success' : 'danger'">{{ row.status }}</el-tag>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="220">
+        <el-table-column label="操作" width="320">
           <template #default="{ row }">
+            <el-button
+              size="small"
+              type="primary"
+              @click="$router.push({ name: 'member-positions', query: { memberId: row.memberId } })"
+            >历史净头寸</el-button>
             <el-button
               size="small"
               :disabled="!auth.isOperator || row.status === 'ACTIVE'"

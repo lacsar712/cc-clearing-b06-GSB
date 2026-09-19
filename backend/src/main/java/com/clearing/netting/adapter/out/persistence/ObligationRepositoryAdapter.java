@@ -77,4 +77,14 @@ public class ObligationRepositoryAdapter implements ObligationRepositoryPort {
                 .map(PersistenceMapper::toDomain)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<TradeObligation> findByNettingRunIdIn(List<String> runIds) {
+        if (runIds == null || runIds.isEmpty()) {
+            return List.of();
+        }
+        return repository.findByNettingRunIdIn(runIds).stream()
+                .map(PersistenceMapper::toDomain)
+                .collect(Collectors.toList());
+    }
 }

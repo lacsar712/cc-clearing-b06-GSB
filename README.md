@@ -51,6 +51,19 @@ docker compose down
 7. 进入批次详情，点击 Settle，义务变为 SETTLED
 8. 使用 `viewer` 登录，确认只能浏览、无法执行写操作
 
+### 会员历史净头寸
+
+seed 会构造可核对的多批次历史：同一交割日 USD 两个 COMPLETED 批次（批次 A 已 settle、批次 B 未 settle），次日还有一个 EUR 批次；另建一个不参与任何批次的会员 Delta Holdings。
+
+1. 「会员」页或左侧「会员历史净头寸」入口进入查询页，选择会员（如 Alpha Bank）
+2. 页面按【交割日 + 币种】分行展示该会员在**所有 COMPLETED（含已 settle）批次**中的净头寸代数和
+3. 展开汇总行可见每个来源批次的 Run ID（可点进批次详情）、创建时间、是否已 SETTLED、该批次净头寸；各来源净头寸代数和等于汇总行，并与批次详情页逐笔一致
+4. 选择 Delta Holdings 等无历史会员显示空表（不报错）
+5. 页面顶部固定展示汇总口径说明；operator 与 viewer 均可查询，端口不变
+
+接口：`GET /api/members/{id}/position-history`（只读，双角色可访问；返回 member、aggregationRule 及按日/币分行的 rows，每行含 sources 可追溯到批次）。
+
+
 健康检查：
 
 ```bash

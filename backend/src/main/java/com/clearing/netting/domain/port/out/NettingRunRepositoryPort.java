@@ -1,6 +1,7 @@
 package com.clearing.netting.domain.port.out;
 
 import com.clearing.netting.domain.model.NettingRun;
+import com.clearing.netting.domain.model.NettingRunStatus;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,4 +12,6 @@ public interface NettingRunRepositoryPort {
     Optional<NettingRun> findById(String runId);
 
     List<NettingRun> findAllOrderByCreatedAtDesc();
+
+    List<NettingRun> findByStatus(NettingRunStatus status);
 }

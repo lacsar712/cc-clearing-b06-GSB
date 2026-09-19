@@ -8,4 +8,6 @@ public interface NetPositionRepositoryPort {
     List<NetPosition> saveAll(List<NetPosition> positions);
 
     List<NetPosition> findByRunId(String runId);
+
+    List<NetPosition> findByMemberIdAndRunIdIn(String memberId, List<String> runIds);
 }
